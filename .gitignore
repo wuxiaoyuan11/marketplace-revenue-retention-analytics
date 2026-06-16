@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 *.twbr
+*.twb
 
 # Local data and generated outputs
 data/raw/*.csv

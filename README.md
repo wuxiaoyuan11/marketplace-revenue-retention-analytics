@@ -90,7 +90,7 @@ Estimated directional GMV impact for practical scenarios, including At Risk cust
 .
 ├── dashboard/
 │   ├── bi_export/                 # Aggregated Tableau-ready CSV files
-│   └── marketplace_revenue_retention_dashboard.twb
+│   └── README.md
 ├── reports/
 │   ├── figures/                   # Python-generated visualizations
 │   └── business_recommendations.md
@@ -112,8 +112,8 @@ python3 src/opportunity_sizing.py
 python3 src/prepare_bi_exports.py
 ```
 
-The Tableau workbook can be opened from:
+The Tableau dashboard is published publicly here:
 
 ```text
-dashboard/marketplace_revenue_retention_dashboard.twb
+https://public.tableau.com/app/profile/xiaoyuan.wu/viz/MarketplaceRevenueRetentionExperienceAnalytics/MarketplaceAnalyticsOverview
 ```

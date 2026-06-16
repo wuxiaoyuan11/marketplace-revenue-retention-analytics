@@ -1,6 +1,6 @@
 # Dashboard Assets
 
-This folder contains the Tableau workbook, a local HTML dashboard, and aggregated CSV files used for business intelligence visualization.
+This folder contains a local HTML dashboard and aggregated CSV files used for business intelligence visualization.
 
 ## Tableau Public
 
@@ -12,7 +12,6 @@ https://public.tableau.com/app/profile/xiaoyuan.wu/viz/marketplace_revenue_reten
 
 ## Files
 
-- `marketplace_revenue_retention_dashboard.twb`: Tableau workbook
 - `index.html`: local HTML dashboard generated with Python
 - `bi_export/`: aggregated dashboard-ready CSV files
 
