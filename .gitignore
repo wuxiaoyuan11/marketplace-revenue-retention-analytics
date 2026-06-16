@@ -20,3 +20,10 @@ venv/
 
 # Local matplotlib cache
 .matplotlib/
+
+# Local learning / build notes
+项目执行指南.md
+dashboard/dashboard_plan.md
+dashboard/tableau_powerbi_build_guide.md
+dashboard/tableau_quick_start.md
+reports/final_insight_report_template.md

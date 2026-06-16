@@ -1,4 +1,4 @@
--- Use these as interview talking points.
+-- Business validation queries for additional marketplace diagnostics.
 
 -- 1. Top 10 categories by GMV
 SELECT
