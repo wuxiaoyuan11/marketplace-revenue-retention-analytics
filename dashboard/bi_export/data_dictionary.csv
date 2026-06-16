@@ -1,0 +1,23 @@
+field,definition,used_in
+month,Month of order purchase,monthly_revenue
+orders,Number of delivered orders,multiple
+customers,Number of unique purchasing customers,multiple
+gmv,Gross merchandise volume / order payment value,multiple
+aov,"Average order value, calculated as GMV divided by orders",multiple
+avg_review_score,Average customer review score from 1 to 5,multiple
+product_category,English product category name,category tables
+customer_state,Brazil customer state abbreviation,state tables
+cohort_month,Month of customer's first purchase,cohort_retention
+month_number,Months since first purchase,cohort_retention
+retention_rate,Active customers divided by original cohort size,cohort_retention
+rfm_segment,"Customer segment based on recency, frequency, and monetary value",rfm_segment_summary
+avg_recency_days,Average days since last purchase for the RFM segment,rfm_segment_summary
+avg_frequency,Average delivered order count for the RFM segment,rfm_segment_summary
+avg_monetary,Average historical monetary value for the RFM segment,rfm_segment_summary
+total_gmv,Total historical GMV contributed by the RFM segment,rfm_segment_summary
+delivery_delay_bucket,Delivery delay bucket based on estimated vs actual delivery date,delivery_review
+avg_delivery_days,Average days from purchase to customer delivery,satisfaction tables
+avg_delivery_delay_days,Average difference between estimated and actual delivery date,satisfaction tables
+scenario,Business opportunity scenario,opportunity_sizing
+estimated_gmv_impact,Directional GMV impact under the scenario assumption,opportunity_sizing
+impact_as_pct_of_total_gmv,Estimated GMV impact divided by total GMV,opportunity_sizing

@@ -1,0 +1,9 @@
+metric,value,definition
+Total GMV,15422461.769999998,Delivered order payment value
+Orders,96478.0,Number of delivered orders
+Customers,93358.0,Unique purchasing customers
+AOV,159.85470024254232,GMV / orders
+Orders per customer,1.0334197390689603,Orders / customers
+GMV per customer,165.19700261359495,GMV / customers
+Repeat customers,2801.0,Customers with 2+ delivered orders
+Repeat customer rate,0.0300027849782557,Repeat customers / customers

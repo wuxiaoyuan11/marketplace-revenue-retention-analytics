@@ -1,0 +1,22 @@
+.DS_Store
+**/.DS_Store
+.pycache/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.twbr
+
+# Local data and generated outputs
+data/raw/*.csv
+data/processed/*.csv
+data/processed/*.duckdb
+
+# Local environments
+.venv/
+venv/
+
+# Kaggle API token
+.kaggle/
+
+# Local matplotlib cache
+.matplotlib/
