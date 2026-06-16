@@ -96,43 +96,55 @@ def size_opportunities(order_level: pd.DataFrame) -> pd.DataFrame:
             "scenario": "Win back 5% of At Risk customers",
             "baseline": f"{money(at_risk_customers)} At Risk customers; avg monetary {money(at_risk_avg_monetary)}",
             "assumption": "5% of At Risk users place one additional order at their historical average monetary value",
+            "formula": "At Risk customers x 5% x At Risk avg monetary value",
             "estimated_gmv_impact": at_risk_customers * 0.05 * at_risk_avg_monetary,
             "strategic_use": "Retention campaign sizing",
+            "validation_plan": "Run a holdout-based win-back test and measure incremental conversion, GMV, and margin versus control.",
         },
         {
             "scenario": "Win back 3% of Dormant customers",
             "baseline": f"{money(dormant['customers'])} Dormant customers; avg monetary {money(dormant['avg_monetary'])}",
             "assumption": "3% of Dormant users return with one order at their historical average monetary value",
+            "formula": "Dormant customers x 3% x Dormant avg monetary value",
             "estimated_gmv_impact": dormant["customers"] * 0.03 * dormant["avg_monetary"],
             "strategic_use": "Low-cost reactivation test",
+            "validation_plan": "Test low-cost reactivation coupons and compare reactivation rate, subsidy cost, and incremental GMV.",
         },
         {
             "scenario": "Convert 10% of Potential Loyalists to a second order",
             "baseline": f"{money(potential['customers'])} Potential Loyalists; platform AOV {money(aov)}",
             "assumption": "10% place a second order at platform AOV",
+            "formula": "Potential Loyalist customers x 10% x platform AOV",
             "estimated_gmv_impact": potential["customers"] * 0.10 * aov,
             "strategic_use": "Post-first-purchase activation",
+            "validation_plan": "Measure second-order conversion lift from post-delivery lifecycle campaigns against a control group.",
         },
         {
             "scenario": "Increase month-1 retention by 1 percentage point",
             "baseline": f"Current avg month-1 retention {pct(month1_retention)}",
             "assumption": "A +1pp lift creates additional retained customers who purchase at platform AOV",
+            "formula": "Cohort customers x 1pp retention lift x platform AOV",
             "estimated_gmv_impact": cohort0_customers * 0.01 * aov,
             "strategic_use": "Lifecycle marketing target",
+            "validation_plan": "Track month-1 retention, second-order GMV, and repeat purchase rate before and after lifecycle interventions.",
         },
         {
             "scenario": "Reduce 8+ day delayed order GMV by 20%",
             "baseline": f"{money(delayed_8['orders'])} orders; {money(delayed_8['gmv'])} delayed GMV; avg score {delayed_8['avg_review_score']:.2f}",
             "assumption": "20% of severe-delay GMV is moved into a healthier delivery experience",
+            "formula": "8+ day delayed GMV x 20%",
             "estimated_gmv_impact": delayed_8["gmv"] * 0.20,
             "strategic_use": "SLA and seller operations sizing",
+            "validation_plan": "Monitor SLA intervention sellers versus comparable sellers on delay rate, review score, and repeat purchase.",
         },
         {
             "scenario": "Reduce all delayed order GMV by 10%",
             "baseline": f"{money(delayed_any['orders'].sum())} delayed orders; {money(delayed_any['gmv'].sum())} delayed GMV",
             "assumption": "10% of delayed GMV is protected from severe dissatisfaction risk",
+            "formula": "All delayed GMV x 10%",
             "estimated_gmv_impact": delayed_any["gmv"].sum() * 0.10,
             "strategic_use": "Logistics improvement target",
+            "validation_plan": "Track delayed-order GMV exposure, complaint rate, review score, and downstream repeat purchase after SLA changes.",
         },
     ]
 
@@ -148,6 +160,8 @@ def write_markdown(metric_tree: pd.DataFrame, opportunities: pd.DataFrame) -> No
         metric_lines.append(f"| {row['metric']} | {value} | {row['definition']} |")
 
     opportunity_lines = []
+    formula_lines = []
+    validation_lines = []
     for _, row in opportunities.iterrows():
         opportunity_lines.append(
             "| {scenario} | {impact} | {pct_total} | {assumption} |".format(
@@ -157,6 +171,8 @@ def write_markdown(metric_tree: pd.DataFrame, opportunities: pd.DataFrame) -> No
                 assumption=row["assumption"],
             )
         )
+        formula_lines.append(f"| {row['scenario']} | {row['formula']} |")
+        validation_lines.append(f"| {row['scenario']} | {row['validation_plan']} |")
 
     text = f"""# GMV Metric Tree and Opportunity Sizing
 
@@ -187,6 +203,20 @@ These are directional estimates, not causal experiment results. They are useful 
 |---|---:|---:|---|
 {chr(10).join(opportunity_lines)}
 
+## Assumptions and Formulas
+
+| Scenario | Formula |
+|---|---|
+{chr(10).join(formula_lines)}
+
+## Limitations
+
+- These estimates are directional sizing exercises, not causal lift estimates.
+- GMV impact does not equal profit impact because margin, discount cost, logistics cost, and refund cost are not available in the dataset.
+- Customer reactivation assumptions may overlap across segments, so scenarios should not be added together without de-duplication.
+- Delivery-improvement scenarios estimate GMV exposure protected from poor experience, not guaranteed incremental GMV.
+- The dataset does not include browsing, impressions, marketing spend, or campaign touchpoints, so conversion funnel and attribution analysis are approximated from order behavior.
+
 ## Business Interpretation
 
 1. The largest modeled opportunity is At Risk customer win-back. This segment has high historical monetary value and contributes a large share of GMV, so even a 5% reactivation assumption creates meaningful upside.
@@ -196,10 +226,9 @@ These are directional estimates, not causal experiment results. They are useful 
 
 ## How To Validate These Opportunities
 
-- Run A/B tests for At Risk win-back campaigns and measure incremental conversion, GMV, and margin.
-- Track first-purchase cohorts before and after post-delivery lifecycle campaigns.
-- Monitor delivery SLA improvements by seller, state, and product category.
-- Compare review score, repeat purchase, and complaint rate for orders moved out of severe-delay buckets.
+| Scenario | Validation plan |
+|---|---|
+{chr(10).join(validation_lines)}
 
 """
     (REPORT_DIR / "gmv_metric_tree_opportunity_sizing.md").write_text(text)

@@ -4,12 +4,18 @@ An end-to-end e-commerce marketplace analytics project using SQL, Python, DuckDB
 
 ## Dashboard
 
-[View the Tableau Public dashboard](https://public.tableau.com/app/profile/xiaoyuan.wu/viz/marketplace_revenue_retention_dashboard/MarketplaceAnalyticsOverview)
+[View the Tableau Public dashboard](https://public.tableau.com/app/profile/xiaoyuan.wu/viz/MarketplaceRevenueRetentionExperienceAnalytics/MarketplaceAnalyticsOverview)
 
 The dashboard summarizes marketplace performance across two views:
 
 - **Revenue & Opportunity**: monthly GMV trend, top GMV categories, and estimated opportunity sizing.
 - **Retention & Experience**: RFM customer segments, delivery delay impact, and cohort retention.
+
+## Case Study
+
+- [Executive case study](reports/case_study.md)
+- [Advanced business diagnostics](reports/advanced_business_diagnostics.md)
+- [GMV metric tree and opportunity sizing](reports/gmv_metric_tree_opportunity_sizing.md)
 
 ## Business Context
 
@@ -51,7 +57,7 @@ Raw marketplace data
 - The repeat customer rate is approximately **3.0%**, making retention the biggest structural growth issue.
 - The top 5 product categories contribute approximately **39.4%** of category-level GMV.
 - **At Risk** customers contribute approximately **4.53M BRL** in historical GMV, representing a meaningful win-back opportunity.
-- A 5% win-back scenario for At Risk customers is estimated to affect approximately **226.7K BRL** in GMV.
+- A 5% win-back scenario for At Risk customers is estimated to affect approximately **226.8K BRL** in GMV.
 - Orders delayed by 8+ days have an average review score of **1.70**, compared with **4.21** for on-time or early deliveries.
 
 ## Business Recommendations
@@ -84,6 +90,10 @@ Compared review scores across delivery delay buckets to quantify the relationshi
 
 Estimated directional GMV impact for practical scenarios, including At Risk customer win-back, month-1 retention lift, delayed-order reduction, and Potential Loyalist conversion.
 
+### Advanced Business Diagnostics
+
+Added seller SLA risk, category satisfaction risk scoring, and cohort LTV proxy analysis to support marketplace operations and prioritization decisions.
+
 ## Repository Structure
 
 ```text
@@ -93,6 +103,8 @@ Estimated directional GMV impact for practical scenarios, including At Risk cust
 │   └── README.md
 ├── reports/
 │   ├── figures/                   # Python-generated visualizations
+│   ├── case_study.md
+│   ├── advanced_business_diagnostics.md
 │   └── business_recommendations.md
 ├── sql/                           # SQL analysis scripts
 ├── src/                           # Python pipeline scripts

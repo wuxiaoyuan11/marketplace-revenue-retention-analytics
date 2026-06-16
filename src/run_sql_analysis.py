@@ -16,6 +16,7 @@ QUERIES = [
     "04_cohort_retention.sql",
     "05_rfm_segmentation.sql",
     "06_customer_satisfaction.sql",
+    "08_advanced_business_diagnostics.sql",
 ]
 
 

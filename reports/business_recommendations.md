@@ -11,7 +11,7 @@ Key outputs:
 - At Risk customers contribute about 29.4% of total RFM GMV, making them a high-priority retention segment.
 - Orders delayed by 8+ days have an average review score of 1.70, compared with 4.21 for on-time or early deliveries.
 - Average month-1 cohort retention is about 5.5%, indicating a marketplace with strong one-time purchase behavior.
-- Opportunity sizing estimates that winning back 5% of At Risk customers could bring about 226.7K incremental GMV under a directional reactivation assumption.
+- Opportunity sizing estimates that winning back 5% of At Risk customers could bring about 226.8K incremental GMV under a directional reactivation assumption.
 
 ## Key Charts
 
@@ -116,7 +116,7 @@ At Risk customers contribute about 4.53M GMV, or 29.4% of RFM GMV. They should r
 
 Directional opportunity sizing:
 
-- If 5% of At Risk customers place one additional order at their historical average monetary value, estimated GMV impact is about 226.7K.
+- If 5% of At Risk customers place one additional order at their historical average monetary value, estimated GMV impact is about 226.8K.
 
 Actions:
 

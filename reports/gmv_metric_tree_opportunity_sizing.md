@@ -32,12 +32,31 @@ These are directional estimates, not causal experiment results. They are useful 
 
 | Scenario | Estimated GMV Impact | % of Total GMV | Assumption |
 |---|---:|---:|---|
-| Win back 5% of At Risk customers | 226,677 | 1.5% | 5% of At Risk users place one additional order at their historical average monetary value |
+| Win back 5% of At Risk customers | 226,813 | 1.5% | 5% of At Risk users place one additional order at their historical average monetary value |
 | Increase month-1 retention by 1 percentage point | 149,237 | 1.0% | A +1pp lift creates additional retained customers who purchase at platform AOV |
 | Reduce all delayed order GMV by 10% | 115,089 | 0.7% | 10% of delayed GMV is protected from severe dissatisfaction risk |
 | Reduce 8+ day delayed order GMV by 20% | 104,665 | 0.7% | 20% of severe-delay GMV is moved into a healthier delivery experience |
-| Win back 3% of Dormant customers | 44,198 | 0.3% | 3% of Dormant users return with one order at their historical average monetary value |
-| Convert 10% of Potential Loyalists to a second order | 18,463 | 0.1% | 10% place a second order at platform AOV |
+| Win back 3% of Dormant customers | 45,620 | 0.3% | 3% of Dormant users return with one order at their historical average monetary value |
+| Convert 10% of Potential Loyalists to a second order | 3,773 | 0.0% | 10% place a second order at platform AOV |
+
+## Assumptions and Formulas
+
+| Scenario | Formula |
+|---|---|
+| Win back 5% of At Risk customers | At Risk customers x 5% x At Risk avg monetary value |
+| Increase month-1 retention by 1 percentage point | Cohort customers x 1pp retention lift x platform AOV |
+| Reduce all delayed order GMV by 10% | All delayed GMV x 10% |
+| Reduce 8+ day delayed order GMV by 20% | 8+ day delayed GMV x 20% |
+| Win back 3% of Dormant customers | Dormant customers x 3% x Dormant avg monetary value |
+| Convert 10% of Potential Loyalists to a second order | Potential Loyalist customers x 10% x platform AOV |
+
+## Limitations
+
+- These estimates are directional sizing exercises, not causal lift estimates.
+- GMV impact does not equal profit impact because margin, discount cost, logistics cost, and refund cost are not available in the dataset.
+- Customer reactivation assumptions may overlap across segments, so scenarios should not be added together without de-duplication.
+- Delivery-improvement scenarios estimate GMV exposure protected from poor experience, not guaranteed incremental GMV.
+- The dataset does not include browsing, impressions, marketing spend, or campaign touchpoints, so conversion funnel and attribution analysis are approximated from order behavior.
 
 ## Business Interpretation
 
@@ -48,8 +67,12 @@ These are directional estimates, not causal experiment results. They are useful 
 
 ## How To Validate These Opportunities
 
-- Run A/B tests for At Risk win-back campaigns and measure incremental conversion, GMV, and margin.
-- Track first-purchase cohorts before and after post-delivery lifecycle campaigns.
-- Monitor delivery SLA improvements by seller, state, and product category.
-- Compare review score, repeat purchase, and complaint rate for orders moved out of severe-delay buckets.
+| Scenario | Validation plan |
+|---|---|
+| Win back 5% of At Risk customers | Run a holdout-based win-back test and measure incremental conversion, GMV, and margin versus control. |
+| Increase month-1 retention by 1 percentage point | Track month-1 retention, second-order GMV, and repeat purchase rate before and after lifecycle interventions. |
+| Reduce all delayed order GMV by 10% | Track delayed-order GMV exposure, complaint rate, review score, and downstream repeat purchase after SLA changes. |
+| Reduce 8+ day delayed order GMV by 20% | Monitor SLA intervention sellers versus comparable sellers on delay rate, review score, and repeat purchase. |
+| Win back 3% of Dormant customers | Test low-cost reactivation coupons and compare reactivation rate, subsidy cost, and incremental GMV. |
+| Convert 10% of Potential Loyalists to a second order | Measure second-order conversion lift from post-delivery lifecycle campaigns against a control group. |
 

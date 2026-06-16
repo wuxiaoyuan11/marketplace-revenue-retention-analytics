@@ -21,3 +21,6 @@ avg_delivery_delay_days,Average difference between estimated and actual delivery
 scenario,Business opportunity scenario,opportunity_sizing
 estimated_gmv_impact,Directional GMV impact under the scenario assumption,opportunity_sizing
 impact_as_pct_of_total_gmv,Estimated GMV impact divided by total GMV,opportunity_sizing
+sla_risk_score,"Seller GMV weighted by late delivery, severe delay, and poor review exposure",seller_sla_summary
+category_risk_score,"Category GMV share weighted by review gap, delay, and poor review exposure",category_risk_score
+cumulative_gmv_per_cohort_customer,Cumulative cohort GMV divided by original cohort customer count,cohort_ltv_proxy

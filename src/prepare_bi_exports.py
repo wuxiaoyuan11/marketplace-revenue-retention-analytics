@@ -91,6 +91,49 @@ EXPORTS = {
         "source": "gmv_metric_tree.csv",
         "columns": ["metric", "value", "definition"],
     },
+    "seller_sla_summary": {
+        "source": "seller_sla_summary.csv",
+        "columns": [
+            "seller_id",
+            "seller_state",
+            "delivered_orders",
+            "gmv",
+            "avg_delivery_delay_days",
+            "avg_review_score",
+            "late_delivery_rate",
+            "severe_delay_rate",
+            "poor_review_rate",
+            "sla_risk_score",
+        ],
+    },
+    "category_risk_score": {
+        "source": "category_risk_score.csv",
+        "columns": [
+            "product_category",
+            "orders",
+            "gmv",
+            "gmv_share",
+            "avg_review_score",
+            "avg_delivery_days",
+            "late_delivery_rate",
+            "severe_delay_rate",
+            "poor_review_rate",
+            "category_risk_score",
+        ],
+    },
+    "cohort_ltv_proxy": {
+        "source": "cohort_ltv_proxy.csv",
+        "columns": [
+            "cohort_month",
+            "month_number",
+            "active_customers",
+            "cohort_customers",
+            "orders",
+            "cohort_gmv",
+            "cumulative_gmv",
+            "cumulative_gmv_per_cohort_customer",
+        ],
+    },
 }
 
 SHORT_SCENARIOS = {
@@ -126,6 +169,9 @@ DATA_DICTIONARY = [
     ("scenario", "Business opportunity scenario", "opportunity_sizing"),
     ("estimated_gmv_impact", "Directional GMV impact under the scenario assumption", "opportunity_sizing"),
     ("impact_as_pct_of_total_gmv", "Estimated GMV impact divided by total GMV", "opportunity_sizing"),
+    ("sla_risk_score", "Seller GMV weighted by late delivery, severe delay, and poor review exposure", "seller_sla_summary"),
+    ("category_risk_score", "Category GMV share weighted by review gap, delay, and poor review exposure", "category_risk_score"),
+    ("cumulative_gmv_per_cohort_customer", "Cumulative cohort GMV divided by original cohort customer count", "cohort_ltv_proxy"),
 ]
 
 
